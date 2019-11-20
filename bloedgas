@@ -1,0 +1,105 @@
+# Ontwikkeld door Kok van Dorssen.
+vraag1=['Kind van 4 jaar. Waar moet je psychosociaal rekening mee houden?','Kind is bang op lichaamsverminking','Dat het kind jou niet kent','Dat het kind heel hard gaat schreeuwen']
+vraag2=['Jongen van 14 jaar zit in de put omdat hij niet toegelaten is op een opleiding. Waarom maak jij je zorgen dat hij mogelijk zelfmoord kan plegen?','Hij zegt dat hij een droom heeft waarin hij zelfmoord pleegt','Dat hij daar thuis niet over kan praten','Dat hij foute vriendjes heeft']
+vraag3=['Kind met ritme van 180 slagen per minuut. Wat helpt het beste?','Geef een vochtbolus van 20 ml/kg','Meet de temperatuur','Bewaak het hartritme mbv monitor']
+
+foutlijst=[]
+
+antw1=0
+print('{}'.format(vraag1[0]))
+print(end='\n')
+print('1: {}.'.format(vraag1[1]))
+print('2: {}.'.format(vraag1[2]))
+print('3: {}.'.format(vraag1[3]))
+
+while antw1-1 not in range(len(vraag1)):
+    antw1=int(input('Maak jouw keuze 1, 2 of 3:'))
+
+while antw1 <1 or antw1>1:
+    antw1=int(input('Helaas, probeer het nog eens: '))
+
+goed=0
+fout=0
+
+print(end='\n')
+print(antw1,vraag1[antw1],'is goed!')
+antw1a=format(vraag1[1])
+goed=goed+1
+print(end='\n\n')    
+
+print('{}'.format(vraag2[0]))
+print(end='\n')
+print('1: {}.'.format(vraag2[2]))
+print('2: {}.'.format(vraag2[3]))
+print('3: {}.'.format(vraag2[1]))
+
+antw2=0
+while antw2-1 not in range(len(vraag2)):
+    antw2=int(input('Maak jouw keuze 1, 2 of 3:'))
+
+if antw2 <3 or antw2 >3:
+    fout=fout+1
+    foutlijst.append(format(vraag2[0]))
+    foutlijst.append(format(vraag2[antw2+1]))
+    foutlijst.append(format(vraag2[1]))
+    foutlijst.append(format(vraag2[0]))
+    foutlijst.append(format(vraag2[antw2+1]))
+    foutlijst.append(format(vraag2[1]))
+            
+if antw2==3:
+    goed=goed+1
+print(end='\n\n')
+
+print('{}'.format(vraag3[0]))
+print(end='\n')
+print('1: {}.'.format(vraag3[1]))
+print('2: {}.'.format(vraag3[3]))
+print('3: {}.'.format(vraag3[2]))
+
+antw3=0
+while antw3-1 not in range(len(vraag3)):
+    antw3=int(input('Maak jouw keuze 1, 2 of 3:'))
+
+if antw3 <1 or antw3 >1:
+    fout=fout+1
+    if antw3==2:
+        foutlijst.append(format(vraag3[0]))
+        foutlijst.append(format(vraag3[antw3+1]))
+        foutlijst.append(format(vraag3[1]))
+    if antw3==3:
+        foutlijst.append(format(vraag3[0]))
+        foutlijst.append(format(vraag3[antw3-1]))
+        foutlijst.append(format(vraag3[1]))
+
+if antw3==1:
+    goed=goed+1
+
+print(end='\n\n')
+print('goed:',goed)
+print('fout:',fout)
+print(end='\n')
+
+afrondena=len(foutlijst)
+afrondenb=()
+getal=-3
+getal2=1
+
+while getal2 is not fout+1:    
+
+    afrondenb=(format(foutlijst[0+getal]))
+    print('Uitleg fout:',getal2)
+    print('De vraag was: ',afrondenb)
+    afrondenb=(format(foutlijst[1+getal]))
+    print('Jouw antwoord was: ',afrondenb)
+    afrondenb=(format(foutlijst[2+getal]))
+    print('Het antwoord moest zijn: ',afrondenb)
+    print(end='\n')
+    getal=getal+3
+    getal2=getal2+1
+    
+
+    # print(fouta(fout),'moest zijn:',foutaa(fout)+'.')
+    # print(end='n')
+
+getal=(input("klik op return"))
+
